@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Tracker</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #1f2937; }
+    input, button, select { font: inherit; padding: .4rem .6rem; margin: .15rem; }
+    .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .col { background: #f3f4f6; border-radius: 8px; padding: .5rem 1rem; min-height: 8rem; }
+    li { background: #fff; list-style: none; margin: .5rem 0; padding: .5rem; border-radius: 6px; box-shadow: 0 1px 2px #0002; }
+    ul { padding: 0; }
+    #auth-error { color: #b91c1c; }
+    @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Task Tracker</h1>
+  <section id="auth">
+    <input id="email" type="email" placeholder="email" autocomplete="username">
+    <input id="password" type="password" placeholder="password (8+ chars)" autocomplete="current-password">
+    <button id="login">Log in</button> <button id="register">Register</button>
+    <p id="auth-error" role="alert"></p>
+  </section>
+  <section id="board" hidden>
+    <div><input id="title" placeholder="New task title"><input id="desc" placeholder="Description">
+      <button id="add">Add</button> <button id="logout">Log out</button></div>
+    <div class="cols">
+      <div class="col"><h3>To do</h3><ul id="col-todo"></ul></div>
+      <div class="col"><h3>In progress</h3><ul id="col-in_progress"></ul></div>
+      <div class="col"><h3>Done</h3><ul id="col-done"></ul></div>
+    </div>
+  </section>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
